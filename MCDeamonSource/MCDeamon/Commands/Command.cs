@@ -76,6 +76,7 @@ namespace MCDeamon
             all.Add(new CmdHacks());
             all.Add(new CmdHasirc());
             // all.Add(new CmdHeartbeat()); DEBUG COMMAND DO NOT USE
+            // ^ There was a Heartbeat command? :/
             all.Add(new CmdHelp());
             all.Add(new CmdHide());
             all.Add(new CmdHighlight());
