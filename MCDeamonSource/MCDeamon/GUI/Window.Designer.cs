@@ -61,6 +61,12 @@ namespace MCDeamon.Gui
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ActionsUpdater = new System.Windows.Forms.Button();
+            this.BroadcastText = new System.Windows.Forms.TextBox();
+            this.BroadcastButton = new System.Windows.Forms.Button();
+            this.ActionsClose = new System.Windows.Forms.Button();
+            this.ActionsRestart = new System.Windows.Forms.Button();
             this.btnExtra = new System.Windows.Forms.Button();
             this.liMaps = new System.Windows.Forms.ListBox();
             this.mapsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -80,7 +86,6 @@ namespace MCDeamon.Gui
             this.killerBlocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rPChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.gBCommands = new System.Windows.Forms.GroupBox();
             this.txtCommandsUsed = new System.Windows.Forms.TextBox();
             this.gBChat = new System.Windows.Forms.GroupBox();
@@ -103,14 +108,17 @@ namespace MCDeamon.Gui
             this.txtChangelog = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtErrors = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tmrRestart = new System.Windows.Forms.Timer(this.components);
             this.iconContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openConsole = new System.Windows.Forms.ToolStripMenuItem();
             this.shutdownServer = new System.Windows.Forms.ToolStripMenuItem();
             this.btnProperties = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnRestart = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.mapsStrip.SuspendLayout();
             this.gBCommands.SuspendLayout();
             this.gBChat.SuspendLayout();
@@ -132,16 +140,15 @@ namespace MCDeamon.Gui
             this.tabControl1.Location = new System.Drawing.Point(1, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(581, 514);
+            this.tabControl1.Size = new System.Drawing.Size(855, 514);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.btnExtra);
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.liMaps);
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.gBCommands);
             this.tabPage1.Controls.Add(this.gBChat);
             this.tabPage1.Controls.Add(this.label2);
@@ -151,17 +158,82 @@ namespace MCDeamon.Gui
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.txtUrl);
             this.tabPage1.Controls.Add(this.liClients);
+            this.tabPage1.Controls.Add(this.btnExtra);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(573, 488);
+            this.tabPage1.Size = new System.Drawing.Size(847, 488);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ActionsUpdater);
+            this.groupBox1.Controls.Add(this.BroadcastText);
+            this.groupBox1.Controls.Add(this.BroadcastButton);
+            this.groupBox1.Controls.Add(this.ActionsClose);
+            this.groupBox1.Controls.Add(this.ActionsRestart);
+            this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(441, 326);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(277, 123);
+            this.groupBox1.TabIndex = 37;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Actions";
+            // 
+            // ActionsUpdater
+            // 
+            this.ActionsUpdater.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActionsUpdater.Location = new System.Drawing.Point(6, 78);
+            this.ActionsUpdater.Name = "ActionsUpdater";
+            this.ActionsUpdater.Size = new System.Drawing.Size(265, 38);
+            this.ActionsUpdater.TabIndex = 4;
+            this.ActionsUpdater.Text = "Updater";
+            this.ActionsUpdater.UseVisualStyleBackColor = true;
+            this.ActionsUpdater.Click += new System.EventHandler(this.ActionsUpdater_Click_1);
+            // 
+            // BroadcastText
+            // 
+            this.BroadcastText.Location = new System.Drawing.Point(87, 51);
+            this.BroadcastText.Name = "BroadcastText";
+            this.BroadcastText.Size = new System.Drawing.Size(184, 21);
+            this.BroadcastText.TabIndex = 3;
+            // 
+            // BroadcastButton
+            // 
+            this.BroadcastButton.Location = new System.Drawing.Point(6, 49);
+            this.BroadcastButton.Name = "BroadcastButton";
+            this.BroadcastButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BroadcastButton.Size = new System.Drawing.Size(75, 23);
+            this.BroadcastButton.TabIndex = 2;
+            this.BroadcastButton.Text = "Broadcast:";
+            this.BroadcastButton.UseVisualStyleBackColor = true;
+            this.BroadcastButton.Click += new System.EventHandler(this.BroadcastButton_Click);
+            // 
+            // ActionsClose
+            // 
+            this.ActionsClose.Location = new System.Drawing.Point(143, 20);
+            this.ActionsClose.Name = "ActionsClose";
+            this.ActionsClose.Size = new System.Drawing.Size(128, 23);
+            this.ActionsClose.TabIndex = 1;
+            this.ActionsClose.Text = "Close";
+            this.ActionsClose.UseVisualStyleBackColor = true;
+            this.ActionsClose.Click += new System.EventHandler(this.ActionsClose_Click);
+            // 
+            // ActionsRestart
+            // 
+            this.ActionsRestart.Location = new System.Drawing.Point(6, 20);
+            this.ActionsRestart.Name = "ActionsRestart";
+            this.ActionsRestart.Size = new System.Drawing.Size(128, 23);
+            this.ActionsRestart.TabIndex = 0;
+            this.ActionsRestart.Text = "Restart";
+            this.ActionsRestart.UseVisualStyleBackColor = true;
+            this.ActionsRestart.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnExtra
             // 
             this.btnExtra.Font = new System.Drawing.Font("Calibri", 8.25F);
-            this.btnExtra.Location = new System.Drawing.Point(539, 458);
+            this.btnExtra.Location = new System.Drawing.Point(732, 458);
             this.btnExtra.Name = "btnExtra";
             this.btnExtra.Size = new System.Drawing.Size(28, 23);
             this.btnExtra.TabIndex = 35;
@@ -175,10 +247,10 @@ namespace MCDeamon.Gui
             this.liMaps.ContextMenuStrip = this.mapsStrip;
             this.liMaps.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liMaps.FormattingEnabled = true;
-            this.liMaps.Location = new System.Drawing.Point(447, 237);
+            this.liMaps.Location = new System.Drawing.Point(727, 263);
             this.liMaps.Name = "liMaps";
             this.liMaps.ScrollAlwaysVisible = true;
-            this.liMaps.Size = new System.Drawing.Size(120, 186);
+            this.liMaps.Size = new System.Drawing.Size(120, 225);
             this.liMaps.TabIndex = 33;
             this.liMaps.MouseDown += new System.Windows.Forms.MouseEventHandler(this.liMaps_MouseDown);
             // 
@@ -201,7 +273,7 @@ namespace MCDeamon.Gui
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.physicsToolStripMenuItem.Name = "physicsToolStripMenuItem";
-            this.physicsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.physicsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.physicsToolStripMenuItem.Text = "Physics";
             // 
             // toolStripMenuItem2
@@ -242,7 +314,7 @@ namespace MCDeamon.Gui
             // unloadToolStripMenuItem
             // 
             this.unloadToolStripMenuItem.Name = "unloadToolStripMenuItem";
-            this.unloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unloadToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.unloadToolStripMenuItem.Text = "Unload";
             this.unloadToolStripMenuItem.Click += new System.EventHandler(this.unloadToolStripMenuItem_Click);
             // 
@@ -257,7 +329,7 @@ namespace MCDeamon.Gui
             this.killerBlocksToolStripMenuItem,
             this.rPChatToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // finiteModeToolStripMenuItem
@@ -312,21 +384,9 @@ namespace MCDeamon.Gui
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(447, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Updater";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // gBCommands
             // 
@@ -358,7 +418,7 @@ namespace MCDeamon.Gui
             this.gBChat.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBChat.Location = new System.Drawing.Point(13, 33);
             this.gBChat.Name = "gBChat";
-            this.gBChat.Size = new System.Drawing.Size(428, 287);
+            this.gBChat.Size = new System.Drawing.Size(705, 287);
             this.gBChat.TabIndex = 32;
             this.gBChat.TabStop = false;
             this.gBChat.Text = "Chat";
@@ -373,14 +433,14 @@ namespace MCDeamon.Gui
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(413, 262);
+            this.txtLog.Size = new System.Drawing.Size(693, 262);
             this.txtLog.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(384, 463);
+            this.label2.Location = new System.Drawing.Point(384, 462);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 29;
@@ -389,11 +449,11 @@ namespace MCDeamon.Gui
             // txtHost
             // 
             this.txtHost.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHost.Location = new System.Drawing.Point(447, 428);
+            this.txtHost.Location = new System.Drawing.Point(724, 7);
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(120, 21);
             this.txtHost.TabIndex = 28;
-            this.txtHost.Text = "Alive";
+            this.txtHost.Text = "Deamon";
             this.txtHost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtHost.TextChanged += new System.EventHandler(this.txtHost_TextChanged);
             this.txtHost.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommands_KeyDown);
@@ -401,9 +461,9 @@ namespace MCDeamon.Gui
             // txtCommands
             // 
             this.txtCommands.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommands.Location = new System.Drawing.Point(447, 460);
+            this.txtCommands.Location = new System.Drawing.Point(447, 458);
             this.txtCommands.Name = "txtCommands";
-            this.txtCommands.Size = new System.Drawing.Size(86, 21);
+            this.txtCommands.Size = new System.Drawing.Size(271, 21);
             this.txtCommands.TabIndex = 28;
             this.txtCommands.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommands_KeyDown);
             // 
@@ -433,7 +493,7 @@ namespace MCDeamon.Gui
             this.txtUrl.Location = new System.Drawing.Point(13, 7);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.ReadOnly = true;
-            this.txtUrl.Size = new System.Drawing.Size(428, 21);
+            this.txtUrl.Size = new System.Drawing.Size(705, 21);
             this.txtUrl.TabIndex = 25;
             // 
             // liClients
@@ -441,10 +501,10 @@ namespace MCDeamon.Gui
             this.liClients.ContextMenuStrip = this.playerStrip;
             this.liClients.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liClients.FormattingEnabled = true;
-            this.liClients.Location = new System.Drawing.Point(447, 32);
+            this.liClients.Location = new System.Drawing.Point(727, 38);
             this.liClients.Name = "liClients";
             this.liClients.ScrollAlwaysVisible = true;
-            this.liClients.Size = new System.Drawing.Size(120, 199);
+            this.liClients.Size = new System.Drawing.Size(120, 225);
             this.liClients.TabIndex = 23;
             this.liClients.MouseDown += new System.Windows.Forms.MouseEventHandler(this.liClients_MouseDown);
             // 
@@ -493,7 +553,7 @@ namespace MCDeamon.Gui
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(573, 488);
+            this.tabPage4.Size = new System.Drawing.Size(847, 488);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "System";
             // 
@@ -516,7 +576,7 @@ namespace MCDeamon.Gui
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(573, 488);
+            this.tabPage2.Size = new System.Drawing.Size(847, 488);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Changelog";
             // 
@@ -539,7 +599,7 @@ namespace MCDeamon.Gui
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(573, 488);
+            this.tabPage3.Size = new System.Drawing.Size(847, 488);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Errors";
             // 
@@ -554,6 +614,18 @@ namespace MCDeamon.Gui
             this.txtErrors.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtErrors.Size = new System.Drawing.Size(557, 471);
             this.txtErrors.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(726, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 23);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Updater";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tmrRestart
             // 
@@ -586,7 +658,7 @@ namespace MCDeamon.Gui
             // 
             this.btnProperties.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProperties.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProperties.Location = new System.Drawing.Point(450, 5);
+            this.btnProperties.Location = new System.Drawing.Point(613, 5);
             this.btnProperties.Name = "btnProperties";
             this.btnProperties.Size = new System.Drawing.Size(70, 23);
             this.btnProperties.TabIndex = 34;
@@ -598,7 +670,7 @@ namespace MCDeamon.Gui
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(523, 5);
+            this.btnClose.Location = new System.Drawing.Point(683, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(43, 23);
             this.btnClose.TabIndex = 35;
@@ -606,11 +678,25 @@ namespace MCDeamon.Gui
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
+            // btnRestart
+            // 
+            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestart.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestart.Location = new System.Drawing.Point(563, 5);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(50, 23);
+            this.btnRestart.TabIndex = 37;
+            this.btnRestart.Text = "Restart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 523);
+            this.ClientSize = new System.Drawing.Size(856, 523);
+            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnProperties);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabControl1);
@@ -622,6 +708,8 @@ namespace MCDeamon.Gui
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.mapsStrip.ResumeLayout(false);
             this.gBCommands.ResumeLayout(false);
             this.gBCommands.PerformLayout();
@@ -691,5 +779,12 @@ namespace MCDeamon.Gui
         private ToolStripMenuItem killerBlocksToolStripMenuItem;
         private ToolStripMenuItem rPChatToolStripMenuItem;
         private ToolStripMenuItem saveToolStripMenuItem;
+        private GroupBox groupBox1;
+        private Button ActionsRestart;
+        private Button ActionsClose;
+        private Button btnRestart;
+        private TextBox BroadcastText;
+        private Button BroadcastButton;
+        private Button ActionsUpdater;
     }
 }

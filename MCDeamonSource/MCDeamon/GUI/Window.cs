@@ -592,5 +592,30 @@ namespace MCDeamon.Gui
                 }
             }
         }
+
+        private void ActionsClose_Click(object sender, EventArgs e)
+        {
+            btnClose.PerformClick();
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            MCDeamon_.Gui.Program.restartMe();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            btnRestart.PerformClick();
+        }
+
+        private void BroadcastButton_Click(object sender, EventArgs e)
+        {
+            Command.all.Find("say").Use(null, "%c[Broadcast] " + BroadcastText.Text);
+        }
+
+        private void ActionsUpdater_Click_1(object sender, EventArgs e)
+        {
+            button1.PerformClick();
+        }
     }
 }
