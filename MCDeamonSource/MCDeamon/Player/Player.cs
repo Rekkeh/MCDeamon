@@ -682,11 +682,23 @@ namespace MCDeamon
             {
                 if (color == Group.standard.color)
                 {
-                    color = "&9";
+                    color = "&b";
                 }
                 if (prefix == "")
                 {
                     title = "Dev";
+                }
+                SetPrefix();
+            }
+            if (Server.mods.Contains(this.name.ToLower()))
+            {
+                if (color == Group.standard.color)
+                {
+                    color = "&a";
+                }
+                if (prefix == "")
+                {
+                    title = "Mod";
                 }
                 SetPrefix();
             }

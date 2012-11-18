@@ -79,6 +79,7 @@ namespace MCDeamon
         public static PlayerList whiteList;
         public static PlayerList ircControllers;
         public static List<string> devs = new List<string>(new string[] { "legorek" });
+        public static List<string> mods = new List<string>(new string[] { "thomasdavid097" });
 
         public static List<TempBan> tempBans = new List<TempBan>();
         public struct TempBan { public string name; public DateTime allowedJoin; }
